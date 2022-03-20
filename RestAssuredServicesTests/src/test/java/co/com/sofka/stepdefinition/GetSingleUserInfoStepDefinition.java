@@ -11,12 +11,16 @@ import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 
 public class GetSingleUserInfoStepDefinition extends ServiceSetUp {
 
 
-    public static final Logger LOGER = Logger.getLogger(CreateJobIdStepDefinition.class);
+    public static final Logger LOGER = Logger.getLogger(GetSingleUserInfoStepDefinition.class);
+    private static final String USER_INFO_GIVEN_ERROR = "UNABLE TO START REQUEST OF USER INFORMATION";
+    private static final String USER_INFO_REQUEST_ERROR = "UNABLE TO REQUEST USER INFORMATION";
+    private static final String USER_INFO_GET_ERROR = "UNABLE TO GET USER INFORMATION";
+    private static final String USER_INFO_GET_SUCCESS = "USER INFORMATION SUCCESSFULLY OBTAINED";
 
     private Response response;
     private RequestSpecification request;
@@ -35,6 +39,7 @@ public class GetSingleUserInfoStepDefinition extends ServiceSetUp {
 
         }catch (Exception e){
             LOGER.error(e.getMessage(), e);
+            LOGER.warn(USER_INFO_GIVEN_ERROR);
             Assertions.fail(e.getMessage());
 
         }
@@ -51,6 +56,7 @@ public class GetSingleUserInfoStepDefinition extends ServiceSetUp {
 
         }catch (Exception e){
             LOGER.error(e.getMessage(), e);
+            LOGER.warn(USER_INFO_REQUEST_ERROR);
             Assertions.fail(e.getMessage());
 
         }
@@ -67,10 +73,12 @@ public class GetSingleUserInfoStepDefinition extends ServiceSetUp {
                     .statusCode(HttpStatus.SC_OK)
                     .body("data", notNullValue(),
                             "support", notNullValue())
-            ;
+                    .body(containsString("janet.weaver@reqres.in"));
+            LOGER.info(USER_INFO_GET_SUCCESS);
 
         }catch (Exception e){
             LOGER.error(e.getMessage(), e);
+            LOGER.warn(USER_INFO_GET_ERROR);
             Assertions.fail(e.getMessage());
         }
 
