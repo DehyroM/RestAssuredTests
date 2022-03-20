@@ -8,8 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
-        features = {"src/test/resources/features/get_single_user.feature"},
+        features = {"src/test/resources/features/job_info.feature"},
         glue = {"co.com.sofka.stepdefinition"}
 )
-public class GetSingleUserInfoTestCucumber {
+public class JobInfoTestCucumber {
+
 }

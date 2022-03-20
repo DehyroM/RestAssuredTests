@@ -8,9 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
-        features = {"src/test/resources/features/create_job_id.feature"},
+        features = {"src/test/resources/features/user_login.feature"},
         glue = {"co.com.sofka.stepdefinition"}
 )
-public class CreateJobIdTestCucumber {
-
+public class UserLoginTestCucumber {
 }

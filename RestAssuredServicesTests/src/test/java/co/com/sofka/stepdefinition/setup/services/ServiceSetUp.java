@@ -10,7 +10,8 @@ public class ServiceSetUp {
     private static final String BASE_URI = "https://reqres.in";
     private static final String BASE_PATH = "/api";
     protected static final String CREATE_JOB_ID_RESOURCE = "/users";
-    protected static final String GET_SINGLE_USER_INFO_RESOURCE = "/users/2";
+    protected static final String SINGLE_USER_UPDATE_RESOURCE = "/users/2";
+    protected static final String LOGIN_RESOURCE = "/login";
 
     protected void generalSetUp(){
 
