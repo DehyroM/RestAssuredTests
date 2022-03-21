@@ -16,10 +16,10 @@ import org.junit.jupiter.api.Assertions;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class GetSingleUserInfoStepDefinition extends ServiceSetUp {
+public class UserLoginStepDefinition extends ServiceSetUp {
 
 
-    public static final Logger LOGER = Logger.getLogger(GetSingleUserInfoStepDefinition.class);
+    public static final Logger LOGER = Logger.getLogger(UserLoginStepDefinition.class);
     private static final String USER_INFO_GIVEN_ERROR = "UNABLE TO START REQUEST OF USER INFORMATION";
     private static final String LOGIN_GIVEN_ERROR = "UNABLE TO START REQUEST OF LOGIN";
 
